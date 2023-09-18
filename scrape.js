@@ -20,6 +20,7 @@ async function run() {
     const session = await scrappey.createSession({
         // proxyCountry: "Netherlands"
         // OR use your own proxy
+        // proxy: "http://username:password@ip:port"
     })
 
     /**
@@ -33,9 +34,14 @@ async function run() {
         "cmd": "request.get",
 
         /**
+         * Using sessions
+         */
+        "session": session.session,
+
+        /**
          * Go to main page of Booking.com
          */
-        "url": "https://www.booking.com/index.nl.html",
+        "url": "https://www.booking.com",
 
         /**
          * Whitelist loading for bstatic.com for JS, css loading
@@ -48,7 +54,6 @@ async function run() {
          * Execute the following browser actions
          */
         "browserActions": [
-
             /**
              * Search for city Utrecht
              */
